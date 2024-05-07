@@ -1,0 +1,88 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package org.online.client.grpc.generated;
+
+// Message definitions
+
+message Item {
+  string itemCode = 1;  // Unique identifier for the item
+  string itemName = 2;  // Name of the item
+  int32 quantity = 3;   // Quantity available
+  double unitPrice = 4; // Price per unit
+}
+
+message GetItemsRequest {}
+
+message GetItemsResponse {
+  repeated Item items = 1;  // List of all items
+}
+
+message AddItemRequest {
+  string itemCode = 1;
+  string itemName = 2;
+  int32 quantity = 3;
+  double unitPrice = 4;
+  bool isSentByPrimary = 5; // Flag for primary server sending
+}
+
+message UpdateItemRequest {
+  string itemCode = 1;
+  string itemName = 2;
+  int32 quantity = 3;
+  double unitPrice = 4;
+  bool isSentByPrimary = 5;
+}
+
+message DeleteItemRequest {
+  string itemCode = 1;  // Item code to delete
+}
+
+message UpdateItemQuantityRequest {
+  string itemCode = 1;
+  int32 quantity = 2;
+  bool isSentByPrimary = 3;
+}
+
+message ItemManagerResponse {
+  string itemName = 1;  // Name of the item affected
+  string message = 2;  // Result message of the operation
+  bool status = 3;     // Operation success status
+}
+
+message PlaceOrderRequest {
+  string itemCode = 1;
+  int32 quantity = 2;
+  bool isSentByPrimary = 3;
+}
+
+message PlaceOrderResponse {
+  bool status = 1;     // Order success status
+  string message = 2;  // Result message of the order
+  double total = 3;    // Total cost of the order
+}
+
+// Service definitions
+
+service GetItemsService {
+  rpc getItems(GetItemsRequest) returns (GetItemsResponse); // Service to retrieve specific items based on their codes
+}
+
+service AddItemService {
+  rpc addItem(AddItemRequest) returns (ItemManagerResponse);
+}
+
+service UpdateItemService {
+  rpc updateItem(UpdateItemRequest) returns (ItemManagerResponse);
+}
+
+service DeleteItemService {
+  rpc deleteItem(DeleteItemRequest) returns (ItemManagerResponse);
+}
+
+service UpdateItemQuantityService {
+  rpc updateItemQuantity(UpdateItemQuantityRequest) returns (ItemManagerResponse);
+}
+
+service PlaceOrderService {
+  rpc placeOrder(PlaceOrderRequest) returns (PlaceOrderResponse);
+}
