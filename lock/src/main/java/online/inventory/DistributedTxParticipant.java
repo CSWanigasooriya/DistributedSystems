@@ -3,11 +3,14 @@ package online.inventory;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class DistributedTxParticipant extends DistributedTx implements Watcher {
+    private static final Logger logger = LoggerFactory.getLogger(DistributedTxParticipant.class);
     private static final String PARTICIPANT_PREFIX = "/txp_";
     private String transactionRoot;
 
@@ -22,7 +25,7 @@ public class DistributedTxParticipant extends DistributedTx implements Watcher {
                 client.write(currentTransaction, DistributedTxCoordinator.VOTE_COMMIT.getBytes(StandardCharsets.UTF_8));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("An error occurred", e);
         }
     }
 
@@ -33,7 +36,7 @@ public class DistributedTxParticipant extends DistributedTx implements Watcher {
                 client.write(currentTransaction, DistributedTxCoordinator.VOTE_ABORT.getBytes(StandardCharsets.UTF_8));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("An error occurred", e);
         }
     }
 
@@ -42,15 +45,14 @@ public class DistributedTxParticipant extends DistributedTx implements Watcher {
         transactionRoot = null;
     }
 
-    void onStartTransaction(String transactionId, String
-            participantId) {
+    void onStartTransaction(String transactionId, String participantId) {
         try {
             transactionRoot = "/" + transactionId;
             currentTransaction = transactionRoot + PARTICIPANT_PREFIX + participantId;
-            client.createNode(currentTransaction, true, CreateMode.EPHEMERAL, "".getBytes(StandardCharsets.UTF_8));
+            client.createNode(currentTransaction, CreateMode.EPHEMERAL, "".getBytes(StandardCharsets.UTF_8));
             client.addWatch(transactionRoot);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("An error occurred", e);
         }
     }
 
@@ -66,7 +68,7 @@ public class DistributedTxParticipant extends DistributedTx implements Watcher {
                 System.out.println("Unknown data change in the root : " + dataString);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("An error occurred", e);
         }
     }
 
@@ -74,14 +76,12 @@ public class DistributedTxParticipant extends DistributedTx implements Watcher {
     public void process(WatchedEvent event) {
         Event.EventType type = event.getType();
         if (Event.EventType.NodeDataChanged.equals(type)) {
-            if (transactionRoot != null &&
-                    event.getPath().equals(transactionRoot)) {
+            if (transactionRoot != null && event.getPath().equals(transactionRoot)) {
                 handleRootDataChange();
             }
         }
         if (Event.EventType.NodeDeleted.equals(type)) {
-            if (transactionRoot != null &&
-                    event.getPath().equals(transactionRoot)) {
+            if (transactionRoot != null && event.getPath().equals(transactionRoot)) {
                 rest();
             }
         }

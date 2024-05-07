@@ -3,11 +3,12 @@ package online.inventory;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import online.inventory.grpc.generated.Item;
+import online.inventory.grpc.generated.PlaceOrderRequest;
+import online.inventory.grpc.generated.PlaceOrderResponse;
+import online.inventory.grpc.generated.PlaceOrderServiceGrpc;
 import org.apache.zookeeper.KeeperException;
-import org.online.server.grpc.generated.Item;
-import org.online.server.grpc.generated.PlaceOrderRequest;
-import org.online.server.grpc.generated.PlaceOrderResponse;
-import org.online.server.grpc.generated.PlaceOrderServiceGrpc;
+
 
 import java.io.IOException;
 import java.util.List;

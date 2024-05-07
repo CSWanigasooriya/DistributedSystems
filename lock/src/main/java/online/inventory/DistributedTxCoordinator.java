@@ -2,11 +2,15 @@ package online.inventory;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class DistributedTxCoordinator extends DistributedTx {
+    private static final Logger logger = LoggerFactory.getLogger(DistributedTxCoordinator.class);
+
     public DistributedTxCoordinator(List<DistributedTxListener> listener) {
         super(listener);
     }
@@ -14,15 +18,14 @@ public class DistributedTxCoordinator extends DistributedTx {
     void onStartTransaction(String transactionId, String participantId) {
         try {
             currentTransaction = "/" + transactionId;
-            client.createNode(currentTransaction, true, CreateMode.PERSISTENT, "".getBytes(StandardCharsets.UTF_8));
+            client.createNode(currentTransaction, CreateMode.PERSISTENT, "".getBytes(StandardCharsets.UTF_8));
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("An error occurred", e);
         }
     }
 
-    public boolean perform() throws KeeperException, InterruptedException {
+    public void perform() throws KeeperException, InterruptedException {
         List<String> childrenNodePaths = client.getChildrenNodePaths(currentTransaction);
-        boolean result = true;
         byte[] data;
         System.out.println("Child count : " + childrenNodePaths.size());
         for (String path : childrenNodePaths) {
@@ -33,13 +36,11 @@ public class DistributedTxCoordinator extends DistributedTx {
             if (!VOTE_COMMIT.equals(dataString)) {
                 System.out.println("Child " + path + " caused the transaction to abort. Sending GLOBAL_ABORT");
                 sendGlobalAbort();
-                result = false;
             }
         }
         System.out.println("All nodes are okay to commit the transaction. Sending GLOBAL_COMMIT");
         sendGlobalCommit();
         reset();
-        return result;
     }
 
     public void sendGlobalCommit() throws KeeperException, InterruptedException {

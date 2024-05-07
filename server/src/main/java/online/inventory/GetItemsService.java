@@ -1,10 +1,11 @@
 package online.inventory;
 
 import io.grpc.stub.StreamObserver;
-import org.online.server.grpc.generated.GetItemsRequest;
-import org.online.server.grpc.generated.GetItemsResponse;
-import org.online.server.grpc.generated.GetItemsServiceGrpc;
-import org.online.server.grpc.generated.Item;
+import online.inventory.grpc.generated.GetItemsRequest;
+import online.inventory.grpc.generated.GetItemsResponse;
+import online.inventory.grpc.generated.GetItemsServiceGrpc;
+import online.inventory.grpc.generated.Item;
+
 
 import java.util.List;
 

@@ -4,22 +4,19 @@ import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public class ZooKeeperClient {
 
-    private ZooKeeper zooKeeper;
+    private final ZooKeeper zooKeeper;
 
     public ZooKeeperClient(String zooKeeperUrl, int sessionTimeout, Watcher watcher) throws IOException {
         zooKeeper = new ZooKeeper(zooKeeperUrl, sessionTimeout, watcher);
     }
 
-    public String createNode(String path, boolean shouldWatch, CreateMode mode, byte[] data)
-            throws KeeperException, InterruptedException, UnsupportedEncodingException {
-
-        String createdPath = zooKeeper.create(path, data, ZooDefs.Ids.OPEN_ACL_UNSAFE, mode);
-        return createdPath;
+    public String createNode(String path, CreateMode mode, byte[] data)
+            throws KeeperException, InterruptedException {
+        return zooKeeper.create(path, data, ZooDefs.Ids.OPEN_ACL_UNSAFE, mode);
     }
 
     public boolean CheckExists(String path) throws

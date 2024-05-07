@@ -40,22 +40,20 @@ public class DistributedLock implements Watcher {
         zooKeeperUrl = url;
     }
 
-    private void createRootNode() throws InterruptedException, UnsupportedEncodingException, KeeperException {
-        lockPath = client.createNode(lockPath, false, CreateMode.PERSISTENT, "".getBytes(StandardCharsets.UTF_8));
+    private void createRootNode() throws InterruptedException, KeeperException {
+        lockPath = client.createNode(lockPath, CreateMode.PERSISTENT, "".getBytes(StandardCharsets.UTF_8));
         System.out.println("Root node created at " + lockPath);
     }
 
     private void createChildNode() throws InterruptedException, UnsupportedEncodingException, KeeperException {
         String LOCK_PROCESS_PATH = "/lp_";
-        childPath = client.createNode(lockPath + LOCK_PROCESS_PATH, false, CreateMode.EPHEMERAL_SEQUENTIAL, dataBytes);
+        childPath = client.createNode(lockPath + LOCK_PROCESS_PATH, CreateMode.EPHEMERAL_SEQUENTIAL, dataBytes);
         System.out.println("Child node created at " + childPath);
     }
 
     public void acquireLock() throws KeeperException, InterruptedException, UnsupportedEncodingException {
         String smallestNode = findSmallestNodePath();
-        if (smallestNode.equals(childPath)) {
-            isAcquired = true;
-        } else {
+        if (!smallestNode.equals(childPath)) {
             do {
                 System.out.println("Lock is currently acquired by node " + smallestNode + " .. hence waiting..");
                 eventReceivedFlag = new CountDownLatch(1);
@@ -64,8 +62,8 @@ public class DistributedLock implements Watcher {
                 eventReceivedFlag.await();
                 smallestNode = findSmallestNodePath();
             } while (!smallestNode.equals(childPath));
-            isAcquired = true;
         }
+        isAcquired = true;
     }
 
     public void releaseLock() throws KeeperException, InterruptedException {
@@ -76,7 +74,7 @@ public class DistributedLock implements Watcher {
         isAcquired = false;
     }
 
-    public boolean tryAcquireLock() throws KeeperException, InterruptedException, UnsupportedEncodingException {
+    public boolean tryAcquireLock() throws KeeperException, InterruptedException {
         String smallestNode = findSmallestNodePath();
         if (smallestNode.equals(childPath)) {
             isAcquired = true;

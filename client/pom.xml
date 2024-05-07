@@ -26,7 +26,7 @@
         <!-- Dependencies for gRPC and ZooKeeper are now without version specification -->
         <dependency>
             <groupId>io.grpc</groupId>
-            <artifactId>grpc-netty-shaded</artifactId>
+            <artifactId>grpc-netty</artifactId>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
@@ -47,6 +47,10 @@
         <dependency>
             <groupId>online.inventory</groupId>
             <artifactId>lock</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>online.inventory</groupId>
+            <artifactId>name-service</artifactId>
         </dependency>
     </dependencies>
 

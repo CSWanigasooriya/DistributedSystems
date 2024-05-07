@@ -1,10 +1,11 @@
 package online.inventory;
 
 import io.grpc.stub.StreamObserver;
-import org.online.server.grpc.generated.Item;
-import org.online.server.grpc.generated.ItemManagerResponse;
-import org.online.server.grpc.generated.UpdateItemRequest;
-import org.online.server.grpc.generated.UpdateItemServiceGrpc;
+import online.inventory.grpc.generated.Item;
+import online.inventory.grpc.generated.ItemManagerResponse;
+import online.inventory.grpc.generated.UpdateItemRequest;
+import online.inventory.grpc.generated.UpdateItemServiceGrpc;
+
 
 public class UpdateItemService extends UpdateItemServiceGrpc.UpdateItemServiceImplBase implements DistributedTxListener{
     private final InventoryControlServer inventoryControlServer;

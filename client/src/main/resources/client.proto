@@ -1,6 +1,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
-package org.online.client.grpc.generated;
+package online.inventory.grpc.generated;
 
 // Message definitions
 
@@ -34,7 +34,8 @@ message UpdateItemRequest {
 }
 
 message DeleteItemRequest {
-  string itemCode = 1;  // Item code to delete
+  string itemCode = 1;
+  bool isSentByPrimary = 2;
 }
 
 message UpdateItemQuantityRequest {

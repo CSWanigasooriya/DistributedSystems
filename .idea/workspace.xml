@@ -4,37 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99a92318-e56a-4e55-9c7b-1f238ff35c58" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/ClerkClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/CustomerClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/MainClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/SellerClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/WorkshopManagerClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/client.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lock/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxCoordinator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxParticipant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/ZooKeeperClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/AddItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/DeleteItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/GetItemsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/InventoryControlServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/PlaceOrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/UpdateItemQuantityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/UpdateItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/server.proto" afterDir="false" />
+    <list default="true" id="99a92318-e56a-4e55-9c7b-1f238ff35c58" name="Changes" comment="add name service">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/BaseClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/CredentialStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/name-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/name-service/src/main/java/online/inventory/EtcdClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/name-service/src/main/java/online/inventory/NameServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/online/inventory/ClerkClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/ClerkClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/online/inventory/CustomerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/CustomerClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/online/inventory/MainClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/MainClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/online/inventory/SellerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/SellerClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/online/inventory/WorkshopManagerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/WorkshopManagerClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/client.proto" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/client.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxCoordinator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxParticipant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lock/src/main/java/online/inventory/ZooKeeperClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/ZooKeeperClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/AddItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/AddItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/DeleteItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/DeleteItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/GetItemsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/GetItemsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/InventoryControlServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/InventoryControlServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/PlaceOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/PlaceOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/UpdateItemQuantityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/UpdateItemQuantityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/UpdateItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/UpdateItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/server.proto" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/server.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,41 +62,43 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.DummyProcess.executor&quot;: &quot;Run&quot;,
-    &quot;Application.InventoryManagerServer.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.System [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.System [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.System [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.client [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.client [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.client [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.server [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.server [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.server [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.system [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.system [install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Projects/Java/System/server/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.DummyProcess.executor": "Run",
+    "Application.InventoryManagerServer.executor": "Run",
+    "Maven.System [clean].executor": "Run",
+    "Maven.System [compile].executor": "Run",
+    "Maven.System [install].executor": "Run",
+    "Maven.client [clean].executor": "Run",
+    "Maven.client [compile].executor": "Run",
+    "Maven.client [install].executor": "Run",
+    "Maven.server [clean].executor": "Run",
+    "Maven.server [compile].executor": "Run",
+    "Maven.server [install].executor": "Run",
+    "Maven.server [package].executor": "Run",
+    "Maven.system [clean].executor": "Run",
+    "Maven.system [install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Projects/Java/System/server/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\Java\System\server\src\main\resources" />
@@ -156,7 +156,18 @@
       <workItem from="1715067301540" duration="16114000" />
       <workItem from="1715086078302" duration="745000" />
       <workItem from="1715086841577" duration="1219000" />
+      <workItem from="1715088082735" duration="1984000" />
+      <workItem from="1715090088832" duration="23122000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1715088364879</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715088364879</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,5 +175,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="add name service" />
+    <option name="LAST_COMMIT_MESSAGE" value="add name service" />
   </component>
 </project>

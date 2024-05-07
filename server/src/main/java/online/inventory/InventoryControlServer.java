@@ -1,16 +1,17 @@
 package online.inventory;
 
+
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import online.inventory.grpc.generated.Item;
 import org.apache.zookeeper.KeeperException;
-import org.online.server.grpc.generated.Item;
+
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class InventoryControlServer {
+    public static final String NAME_SERVICE_ADDRESS = "http://localhost:2379";
     private static final String ZOOKEEPER_URL = "localhost:2181";
     private final DistributedLock leaderLock;
     private final AtomicBoolean isLeader = new AtomicBoolean(false);
@@ -41,8 +42,6 @@ public class InventoryControlServer {
 
 
     public InventoryControlServer(String host, int port) throws InterruptedException, IOException, KeeperException {
-        Logger.getLogger("io.netty").setLevel(Level.OFF);
-        Logger.getLogger("org.apache").setLevel(Level.OFF);
         this.serverPort = port;
         this.leaderLock = new DistributedLock("InventoryControlServerCluster", buildServerData(host, port));
         txListeners = new ArrayList<>();
@@ -115,6 +114,8 @@ public class InventoryControlServer {
         server.start();
         System.out.println("InventoryControlServer Started and ready to accept requests on port " + serverPort);
         tryToBeLeader();
+        NameServiceClient client = new NameServiceClient(NAME_SERVICE_ADDRESS);
+        client.registerService("InventoryControlService", "127.0.0.1", serverPort, "tcp");
         server.awaitTermination();
     }
 

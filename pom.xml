@@ -11,21 +11,24 @@
         <module>client</module>
         <module>lock</module>
         <module>server</module>
+        <module>name-service</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <grpc.version>1.36.0</grpc.version>
+        <grpc.version>1.63.0</grpc.version>
         <protobuf.version>3.12.0</protobuf.version>
         <zookeeper.version>3.9.2</zookeeper.version>
         <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
-        <lock.version>1.0-SNAPSHOT</lock.version>
+        <inventory.version>1.0-SNAPSHOT</inventory.version>
+        <slf4j.version>2.0.13</slf4j.version>
+        <log4j.version>2.23.1</log4j.version>
 
         <!-- Plugin Versions -->
-        <os-maven-plugin.version>1.6.2</os-maven-plugin.version>
-        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+        <os-maven-plugin.version>1.7.1</os-maven-plugin.version>
+        <maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
         <grpc-java.version>1.36.0</grpc-java.version>
         <protobuf.version>3.12.0</protobuf.version>
@@ -35,7 +38,7 @@
         <dependencies>
             <dependency>
                 <groupId>io.grpc</groupId>
-                <artifactId>grpc-netty-shaded</artifactId>
+                <artifactId>grpc-netty</artifactId>
                 <version>${grpc.version}</version>
             </dependency>
             <dependency>
@@ -61,42 +64,39 @@
             <dependency>
                 <groupId>online.inventory</groupId>
                 <artifactId>lock</artifactId>
-                <version>${lock.version}</version>
+                <version>${inventory.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>online.inventory</groupId>
+                <artifactId>name-service</artifactId>
+                <version>${inventory.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- Log4j2 API -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <!-- Log4j2 Core -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <!-- Bridge SLF4J to Log4j2 -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-<!--    <profiles>-->
-<!--        &lt;!&ndash; Profile for building the client &ndash;&gt;-->
-<!--        <profile>-->
-<!--            <modules>-->
-<!--                <module>client</module>-->
-<!--            </modules>-->
-<!--            <activation>-->
-<!--                <activeByDefault>false</activeByDefault>-->
-<!--            </activation>-->
-<!--            <id>client</id>-->
-<!--        </profile>-->
-<!--        &lt;!&ndash; Profile for building the server and its dependencies &ndash;&gt;-->
-<!--        <profile>-->
-<!--            <modules>-->
-<!--                <module>lock</module>-->
-<!--                <module>server</module>-->
-<!--            </modules>-->
-<!--            <activation>-->
-<!--                <activeByDefault>false</activeByDefault>-->
-<!--            </activation>-->
-<!--            <id>server</id>-->
-<!--        </profile>-->
-<!--        <profile>-->
-<!--            <modules>-->
-<!--                <module>lock</module>-->
-<!--            </modules>-->
-<!--            <activation>-->
-<!--                <activeByDefault>false</activeByDefault>-->
-<!--            </activation>-->
-<!--            <id>lock</id>-->
-<!--        </profile>-->
-<!--    </profiles>-->
 
 </project>
