@@ -5,34 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99a92318-e56a-4e55-9c7b-1f238ff35c58" name="Changes" comment="add name service">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/BaseClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/CredentialStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name-service/src/main/java/online/inventory/EtcdClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name-service/src/main/java/online/inventory/NameServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/online/inventory/ClerkClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/ClerkClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/online/inventory/CustomerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/CustomerClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/online/inventory/MainClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/MainClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/online/inventory/SellerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/SellerClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/online/inventory/WorkshopManagerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/online/inventory/WorkshopManagerClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/client.proto" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/client.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedLock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxCoordinator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/DistributedTxParticipant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lock/src/main/java/online/inventory/ZooKeeperClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/lock/src/main/java/online/inventory/ZooKeeperClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/AddItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/AddItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/DeleteItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/DeleteItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/GetItemsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/GetItemsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/InventoryControlServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/InventoryControlServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/PlaceOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/PlaceOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/UpdateItemQuantityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/UpdateItemQuantityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/online/inventory/UpdateItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/online/inventory/UpdateItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/server.proto" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/server.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +134,7 @@
       <workItem from="1715086078302" duration="745000" />
       <workItem from="1715086841577" duration="1219000" />
       <workItem from="1715088082735" duration="1984000" />
-      <workItem from="1715090088832" duration="23122000" />
+      <workItem from="1715090088832" duration="28547000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -167,7 +144,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715088364879</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add name service">
+      <option name="closed" value="true" />
+      <created>1715121225368</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715121225368</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add name service">
+      <option name="closed" value="true" />
+      <created>1715121231278</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715121231278</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

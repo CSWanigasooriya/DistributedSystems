@@ -49,9 +49,6 @@ public class CustomerClient extends BaseClient {
 
         while (true) {
             try {
-                System.out.println("\nAvailable items:");
-                printItems();
-
                 System.out.println("Enter Item code (type 'exit' to quit):");
                 String itemCode = scanner.nextLine().trim();
                 if ("exit".equalsIgnoreCase(itemCode)) {

@@ -76,28 +76,33 @@ public class MainClient {
         boolean done = false;
         while (!done) {
             System.out.println("\nSelect Action:");
-            System.out.println("1. Add Item");
-            System.out.println("2. Update Item");
-            System.out.println("3. Delete Item");
-            System.out.println("4. Return to Main Menu");
+            System.out.println("1. View Items");
+            System.out.println("2. Add Item");
+            System.out.println("3. Update Item");
+            System.out.println("4. Delete Item");
+            System.out.println("5. Return to Main Menu");
 
-            System.out.print("Enter your choice (1-4): ");
+            System.out.print("Enter your choice (1-5): ");
             String action = reader.readLine();
 
             switch (action) {
                 case "1":
+                    System.out.println("Viewing All Items...");
+                    sellerClient.viewItems();
+                    break;
+                case "2":
                     System.out.println("Performing Add Item...");
                     sellerClient.addItem();
                     break;
-                case "2":
+                case "3":
                     System.out.println("Performing Update Item...");
                     sellerClient.updateItem();
                     break;
-                case "3":
+                case "4":
                     System.out.println("Performing Delete Item...");
                     sellerClient.deleteItem();
                     break;
-                case "4":
+                case "5":
                     System.out.println("Returning to Main Menu...");
                     done = true;
                     break;

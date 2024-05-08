@@ -47,6 +47,10 @@ public class SellerClient extends BaseClient {
         deleteItemStub = DeleteItemServiceGrpc.newBlockingStub(channel);
     }
 
+    public void viewItems() {
+        printItems();
+    }
+
     public void addItem() {
         printItems();
 

@@ -111,11 +111,30 @@ public class InventoryControlServer {
 
     public void startServer() throws IOException, InterruptedException {
         Server server = ServerBuilder.forPort(serverPort).addService(getItemsService).addService(updateQuantityService).addService(addItemService).addService(updateItemService).addService(deleteItemService).addService(placeOrderService).build();
+
         server.start();
         System.out.println("InventoryControlServer Started and ready to accept requests on port " + serverPort);
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("Shutting down server...");
+            if (isLeader.get()) {
+                try {
+                    leaderLock.releaseLock();
+                    System.out.println("Lock released due to server shutdown");
+                } catch (Exception e) {
+                    System.out.println("Failed to release the leader lock on shutdown");
+                    e.printStackTrace();
+                }
+            }
+            server.shutdown();
+            System.out.println("Server shutdown complete");
+        }));
+
         tryToBeLeader();
+
         NameServiceClient client = new NameServiceClient(NAME_SERVICE_ADDRESS);
         client.registerService("InventoryControlService", "127.0.0.1", serverPort, "tcp");
+
         server.awaitTermination();
     }
 
@@ -163,7 +182,7 @@ public class InventoryControlServer {
 
         @Override
         public void run() {
-            System.out.println("Starting the leader Campaign");
+            System.out.println("Starting the leader campaign");
             try {
                 boolean leader = leaderLock.tryAcquireLock();
                 while (!leader) {
@@ -172,13 +191,22 @@ public class InventoryControlServer {
                         currentLeaderData = leaderData;
                         setCurrentLeaderData(currentLeaderData);
                     }
-                    Thread.sleep(10000);
+                    Thread.sleep(10000); // Retry every 10 seconds
                     leader = leaderLock.tryAcquireLock();
                 }
                 currentLeaderData = null;
                 beTheLeader();
+            } catch (InterruptedException e) {
+                System.out.println("Leader campaign interrupted");
+                Thread.currentThread().interrupt();
             } catch (Exception e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    leaderLock.releaseLock(); // Ensure the lock is released if the thread exits
+                } catch (KeeperException | InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
